@@ -1,0 +1,44 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<GridPane fx:controller="addressbook.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="top_center" hgap="10" vgap="10">
+    <padding>
+        <Insets top="10" bottom="10" left="10" right="10"/>
+    </padding>
+
+    <Label text="Address" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TableView fx:id="tblAddresses" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <columns>
+            <TableColumn text="First Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Last Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Phone Number" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="phoneNumber"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <TextField fx:id="txtFirstName" promptText="First Name" prefWidth="90"/>
+        <TextField fx:id="txtLastName" promptText="Last Name" prefWidth="90"/>
+        <TextField fx:id="txtEmail" promptText="Email" prefWidth="150"/>
+        <TextField fx:id="txtPhoneNumber" promptText="Phone Number" prefWidth="100"/>
+        <Button text="Add" onAction="#addAddress"/>
+        <Button text="Delete" onAction="#deleteAddress"/>
+    </HBox>
+</GridPane>
